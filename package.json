@@ -3,7 +3,10 @@
   "type": "module",
   "version": "0.0.0",
   "description": "Transform static url to import in JSX",
-  "scripts": {},
+  "scripts": {
+    "lint": "eslint .",
+    "prepare": "husky install"
+  },
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -31,5 +34,17 @@
     "babel",
     "babel-plugin",
     "jsx"
-  ]
+  ],
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.50.0",
+    "@typescript-eslint/parser": "^5.50.0",
+    "eslint": "^8.33.0",
+    "eslint-config-standard": "^17.0.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.0",
+    "typescript": "^4.9.5"
+  },
+  "lint-staged": {
+    "*.{js,ts}": "eslint --fix"
+  }
 }
