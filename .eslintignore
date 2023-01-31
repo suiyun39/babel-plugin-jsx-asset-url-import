@@ -1,2 +1,5 @@
 .idea
 dist
+
+# 快照文件由测试工具生成，不需要检查
+tests/fixtures/**/snapshot.*
