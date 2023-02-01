@@ -9,4 +9,14 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['@typescript-eslint'],
+  rules: {
+    'object-shorthand': 'off',
+    'comma-dangle': ['warn', {
+      arrays: 'always-multiline',
+      objects: 'always-multiline',
+      imports: 'always-multiline',
+      exports: 'always-multiline',
+      functions: 'never',
+    }],
+  },
 }
