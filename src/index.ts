@@ -1,17 +1,28 @@
-import { PluginObj } from '@babel/core'
+import { PluginObj, PluginPass } from '@babel/core'
 import * as t from '@babel/types'
 import { name } from '../package.json'
 
+type VisitorState = PluginPass & {
+  opts: {
+    // 是否转换绝对路径
+    includeAbsolute?: boolean
+  }
+}
+
 // ------ 插件入口 ------
-export default function (): PluginObj {
+export default function (): PluginObj<VisitorState> {
   // 需要插入的 import, 以资源路径为 key
   const importsMap = new Map<string, t.Identifier>()
+
+  let includeAbsolute = false
 
   return {
     name: name,
     visitor: {
       Program: {
-        enter () {
+        enter (path, state) {
+          includeAbsolute = !!state.opts.includeAbsolute
+
           importsMap.clear()
         },
         exit (path) {
@@ -51,8 +62,7 @@ export default function (): PluginObj {
         }
 
         // 跳过绝对路径
-        // todo: 需要插件选项
-        if (attrValue.startsWith('/')) {
+        if (!includeAbsolute && attrValue.startsWith('/')) {
           return
         }
 
