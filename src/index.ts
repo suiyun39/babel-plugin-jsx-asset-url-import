@@ -45,9 +45,14 @@ export default function (): PluginObj {
           return
         }
 
-        // 检查属性值是否是相对路径, 绝对路径和 base64 应保持原样
-        // todo: 此处检查不完善
-        if (!attrValue.startsWith('.')) {
+        // 跳过空路径, 外部路径和 Data URL
+        if (!attrValue || attrValue.startsWith('http') || attrValue.startsWith('//') || attrValue.startsWith('data:')) {
+          return
+        }
+
+        // 跳过绝对路径
+        // todo: 需要插件选项
+        if (attrValue.startsWith('/')) {
           return
         }
 
