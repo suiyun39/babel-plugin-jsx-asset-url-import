@@ -1,6 +1,7 @@
 import { PluginObj, PluginPass } from '@babel/core'
 import * as t from '@babel/types'
 import { name } from '../package.json'
+import { resolveJSXTagName } from './utils'
 
 type VisitorState = PluginPass & {
   opts: {
@@ -54,17 +55,18 @@ export default function (): PluginObj<VisitorState> {
       JSXAttribute (path) {
         const { node, parent } = path
 
-        /*
-         * 插件处理的属性必须满足如下条件:
-         * 1. 属性值必须是静态字符串
-         * 2. 必须在 JSX 开始标签上
-         * 3. 必须能获取到标签名称
-         */
-        if (!t.isStringLiteral(node.value) || !t.isJSXOpeningElement(parent) || !t.isJSXIdentifier(parent.name)) {
+        // 属性值必须是静态字符串且在 JSX 开始标签上
+        if (!t.isStringLiteral(node.value) || !t.isJSXOpeningElement(parent)) {
           return
         }
 
-        const tagName = parent.name.name
+        // 跳过 JSXNamespacedName, 这是历史遗留问题, 并不是合法的 JSX
+        // ref: https://github.com/facebook/jsx/issues/13
+        if (t.isJSXNamespacedName(parent.name)) {
+          return
+        }
+
+        const tagName = resolveJSXTagName(parent.name)
         const attrName = node.name.name
         const attrValue = node.value.value
 

@@ -1,8 +1,12 @@
+/* eslint-disable quote-props */
+
 module.exports = {
   pluginOptions: {
     tags: {
-      img: [],
-      ImagePreview: ['src'],
+      'img': [],
+      'Image': ['src'],
+      'Bar.Image': ['src'],
+      'Foo.Bar.Image': ['src'],
     },
   },
 }

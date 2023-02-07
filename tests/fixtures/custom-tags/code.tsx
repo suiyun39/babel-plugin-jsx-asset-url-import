@@ -1,21 +1,16 @@
 import React from 'react'
 
-export type ImagePreviewProps = {
-  src: string
-  width?: number
-  height?: number
-}
-
-export const ImagePreview: React.FC<ImagePreviewProps> = props => {
-  const { src, width, height } = props
-  return <img src={src} width={width} height={height} alt="" />
-}
+const Image: React.FC<{ src: string }> = () => null
+const Bar = { Image }
+const Foo = { Bar }
 
 export const App: React.FC = () => {
   return (
     <article>
       <img src="./logo.png" alt="" />
-      <ImagePreview src="./logo.png" width={100} height={100} />
+      <Image src="./logo.png" />
+      <Bar.Image src="./logo.png" />
+      <Foo.Bar.Image src="./logo.png" />
     </article>
   )
 }
