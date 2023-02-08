@@ -60,20 +60,14 @@ export default function (): PluginObj<VisitorState> {
           return
         }
 
-        // 跳过 JSXNamespacedName, 这是历史遗留问题, 并不是合法的 JSX
-        // ref: https://github.com/facebook/jsx/issues/13
-        if (t.isJSXNamespacedName(parent.name)) {
+        // 跳过 JSXNamespacedName, React JSX 不会产生这种节点
+        if (t.isJSXNamespacedName(parent.name) || t.isJSXNamespacedName(node.name)) {
           return
         }
 
         const tagName = resolveJSXTagName(parent.name)
         const attrName = node.name.name
         const attrValue = node.value.value
-
-        // 未知原因, attrName 的类型是 string 和 JSXIdentifier 的联合. 为了安全考虑跳过处理
-        if (typeof attrName !== 'string') {
-          return
-        }
 
         // 检查标签名称和属性名称
         if (!tags[tagName] || !tags[tagName].includes(attrName)) {
