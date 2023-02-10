@@ -1,5 +1,4 @@
-import * as t from '@babel/types'
-import { NodePath, Node } from '@babel/core'
+import { NodePath, Node, types as t } from '@babel/core'
 
 /**
  * 解析 JSX 标签名, 返回标签名的字符串表示

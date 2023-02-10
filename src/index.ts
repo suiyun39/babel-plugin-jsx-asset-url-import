@@ -1,5 +1,4 @@
-import { PluginObj, PluginPass } from '@babel/core'
-import * as t from '@babel/types'
+import { PluginObj, PluginPass, types as t } from '@babel/core'
 import { name } from '../package.json'
 import { resolveJSXTagName, shouldExtract, getUidIdentifier } from './utils'
 import parseSrcSet from 'srcset-parse'
