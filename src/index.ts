@@ -1,7 +1,7 @@
 import { PluginObj, PluginPass } from '@babel/core'
 import * as t from '@babel/types'
 import { name } from '../package.json'
-import { resolveJSXTagName, shouldExtract } from './utils'
+import { resolveJSXTagName, shouldExtract, getUidIdentifier } from './utils'
 import parseSrcSet from 'srcset-parse'
 
 type VisitorState = PluginPass & {
@@ -89,7 +89,7 @@ export default function (): PluginObj<VisitorState> {
               identifier = importsMap.get(item.url)
 
               if (!identifier) {
-                identifier = path.scope.generateUidIdentifier('import_assets')
+                identifier = getUidIdentifier(path)
                 importsMap.set(item.url, identifier)
               }
             } else {
@@ -125,7 +125,7 @@ export default function (): PluginObj<VisitorState> {
         let identifier = importsMap.get(attrValue)
 
         if (!identifier) {
-          identifier = path.scope.generateUidIdentifier(`${tagName}_${attrName}`)
+          identifier = getUidIdentifier(path)
           importsMap.set(attrValue, identifier)
         }
 

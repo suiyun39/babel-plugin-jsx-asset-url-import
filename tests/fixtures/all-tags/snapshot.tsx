@@ -1,25 +1,25 @@
-import _track_src from "./track.vtt";
-import _source_src from "./video.webm";
-import _video_poster from "./poster.png";
-import _video_src from "./video.mp4";
-import _object_data from "./help.pdf";
-import _embed_src from "./logo.png";
-import _audio_src from "./audio.mp3";
+import _import_assets7 from "./track.vtt";
+import _import_assets6 from "./video.webm";
+import _import_assets5 from "./poster.png";
+import _import_assets4 from "./video.mp4";
+import _import_assets3 from "./help.pdf";
+import _import_assets2 from "./logo.png";
+import _import_assets from "./audio.mp3";
 import React from "react";
 export const App = () => {
   return (
     <article>
-      <audio src={_audio_src} />
-      <embed src={_embed_src} type="image/png" />
-      <img src={_embed_src} alt="" />
-      <input src={_embed_src} type="image" alt="" />
-      <object data={_object_data} type="application/pdf" />
-      <video src={_video_src} poster={_video_poster}>
-        <source src={_source_src} type="video/webm" />
-        <track src={_track_src} />
+      <audio src={_import_assets} />
+      <embed src={_import_assets2} type="image/png" />
+      <img src={_import_assets2} alt="" />
+      <input src={_import_assets2} type="image" alt="" />
+      <object data={_import_assets3} type="application/pdf" />
+      <video src={_import_assets4} poster={_import_assets5}>
+        <source src={_import_assets6} type="video/webm" />
+        <track src={_import_assets7} />
       </video>
-      <image href={_embed_src} xlinkHref={_embed_src} />
-      <use href={_embed_src} xlinkHref={_embed_src} />
+      <image href={_import_assets2} xlinkHref={_import_assets2} />
+      <use href={_import_assets2} xlinkHref={_import_assets2} />
     </article>
   );
 };

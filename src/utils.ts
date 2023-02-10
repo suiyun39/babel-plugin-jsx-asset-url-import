@@ -1,4 +1,5 @@
 import * as t from '@babel/types'
+import { NodePath, Node } from '@babel/core'
 
 /**
  * 解析 JSX 标签名, 返回标签名的字符串表示
@@ -39,4 +40,12 @@ export function shouldExtract (url: string, includeAbsolute: boolean): boolean {
 
   // 绝对路径
   return !(!includeAbsolute && url.startsWith('/'))
+}
+
+/**
+ * 获取唯一标识符
+ * @param path 节点路径
+ */
+export function getUidIdentifier (path: NodePath<Node>): t.Identifier {
+  return path.scope.generateUidIdentifier('import_assets')
 }
