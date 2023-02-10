@@ -37,6 +37,9 @@
     "babel-plugin",
     "jsx"
   ],
+  "dependencies": {
+    "srcset-parse": "^1.1.0"
+  },
   "peerDependencies": {
     "@babel/core": "^7.20.12"
   },

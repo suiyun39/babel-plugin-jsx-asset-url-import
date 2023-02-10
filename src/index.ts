@@ -1,26 +1,26 @@
 import { PluginObj, PluginPass } from '@babel/core'
 import * as t from '@babel/types'
 import { name } from '../package.json'
-import { resolveJSXTagName } from './utils'
+import { resolveJSXTagName, shouldExtract } from './utils'
+import parseSrcSet from 'srcset-parse'
 
 type VisitorState = PluginPass & {
   opts: {
-    // 是否转换绝对路径
+    // 是否提取绝对路径
     includeAbsolute?: boolean
-    // 需要转换的标签和属性
+    // 需要提取的标签和属性
     tags?: Record<string, string[]>
   }
 }
 
-// todo: 目前不支持处理 img 和 source 的 srcSet 属性
-// ref: https://github.com/webpack-contrib/html-loader#sources
+// @see https://github.com/webpack-contrib/html-loader#sources
 const defaultTags: Record<string, string[]> = {
   audio: ['src'],
   embed: ['src'],
-  img: ['src'],
+  img: ['src', 'srcSet'],
   input: ['src'],
   object: ['data'],
-  source: ['src'],
+  source: ['src', 'srcSet'],
   track: ['src'],
   video: ['poster', 'src'],
   image: ['xlinkHref', 'href'],
@@ -74,13 +74,50 @@ export default function (): PluginObj<VisitorState> {
           return
         }
 
-        // 跳过空路径, 外部路径和 Data URL
-        if (!attrValue || attrValue.startsWith('http') || attrValue.startsWith('//') || attrValue.startsWith('data:')) {
+        // img 和 source 的 srcSet 属性可能包含多个 URL, 需要特殊处理
+        if (attrName === 'srcSet') {
+          const result = parseSrcSet(attrValue)
+          const quasis: t.TemplateElement[] = [t.templateElement({ raw: '' })]
+          const expressions: t.Expression[] = []
+
+          for (const item of result) {
+            const raw: string[] = []
+            let identifier: t.Identifier | undefined
+
+            // 每个 URL 都需要单独检查, 不需要提取的应保持原样
+            if (shouldExtract(item.url, includeAbsolute)) {
+              identifier = importsMap.get(item.url)
+
+              if (!identifier) {
+                identifier = path.scope.generateUidIdentifier('import_assets')
+                importsMap.set(item.url, identifier)
+              }
+            } else {
+              raw.push(item.url)
+            }
+
+            // 处理固有宽度标识与分隔符
+            item.width && raw.push(` ${item.width}w`)
+            item.density && raw.push(` ${item.density}x`)
+            item !== result.at(-1) && raw.push(', ')
+
+            // 如果进行了提取, 则应产生新的模板片段. 否则应将其追加到上一个模板片段上
+            if (identifier) {
+              expressions.push(identifier)
+              quasis.push(t.templateElement({ raw: raw.join('') }))
+            } else {
+              const prev = quasis[quasis.length - 1]
+              prev.value.raw += raw.join('')
+            }
+          }
+
+          const templateLiteral = t.templateLiteral(quasis, expressions)
+          node.value = t.jsxExpressionContainer(templateLiteral)
           return
         }
 
-        // 跳过绝对路径
-        if (!includeAbsolute && attrValue.startsWith('/')) {
+        // 跳过不需要提取的资源路径
+        if (!shouldExtract(attrValue, includeAbsolute)) {
           return
         }
 

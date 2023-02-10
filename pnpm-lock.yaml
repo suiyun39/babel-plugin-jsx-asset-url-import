@@ -17,9 +17,13 @@ specifiers:
   husky: ^8.0.3
   jest: ^29.4.1
   lint-staged: ^13.1.0
+  srcset-parse: ^1.1.0
   ts-jest: ^29.0.5
   tsup: ^6.5.0
   typescript: ^4.9.5
+
+dependencies:
+  srcset-parse: 1.1.0
 
 devDependencies:
   '@babel/core': 7.20.12
@@ -3952,6 +3956,10 @@ packages:
   /sprintf-js/1.0.3:
     resolution: {integrity: sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==}
     dev: true
+
+  /srcset-parse/1.1.0:
+    resolution: {integrity: sha512-JWp4cG2eybkvKA1QUHGoNK6JDEYcOnSuhzNGjZuYUPqXreDl/VkkvP2sZW7Rmh+icuCttrR9ccb2WPIazyM/Cw==}
+    dev: false
 
   /stack-utils/2.0.6:
     resolution: {integrity: sha512-XlkWvfIm6RmsWtNJx+uqtKLS8eqFbxUg0ZzLXqY0caEy9l7hruX8IpiDnjsLavoBgqCCR71TqWO8MaXYheJ3RQ==}
