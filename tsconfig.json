@@ -6,10 +6,13 @@
     "strict": true,
     "esModuleInterop": true,
     "noEmit": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "skipLibCheck": true
   },
+  "include": [
+    "src"
+  ],
   "exclude": [
     "node_modules",
-    "tests"
   ]
 }
