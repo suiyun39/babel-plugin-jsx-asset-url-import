@@ -4,6 +4,10 @@
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
+![npm](https://img.shields.io/npm/v/babel-plugin-jsx-asset-url-import?logo=npm&style=for-the-badge)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/nodoccat/babel-plugin-jsx-asset-url-import/ci.yml?label=CI&logo=github-actions&logoColor=white&style=for-the-badge)
+![Codecov](https://img.shields.io/codecov/c/github/nodoccat/babel-plugin-jsx-asset-url-import?logo=codecov&style=for-the-badge)
+
 ## 示例
 
 ### Input
