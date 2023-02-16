@@ -2,7 +2,7 @@
   "name": "babel-plugin-jsx-asset-url-import",
   "type": "module",
   "version": "1.0.0",
-  "description": "Transform static url to import in JSX",
+  "description": "Extract and transform static url to import in JSX",
   "scripts": {
     "build": "tsc && tsup",
     "lint": "eslint .",
