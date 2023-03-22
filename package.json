@@ -37,7 +37,7 @@
     "babel-plugin",
     "jsx"
   ],
-  "packageManager": "pnpm@7.27.0",
+  "packageManager": "pnpm@7.30.0",
   "dependencies": {
     "srcset-parse": "^1.1.0"
   },
