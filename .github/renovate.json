@@ -12,8 +12,18 @@
   "packageRules": [
     {
       "groupName": "{{manager}} dependencies",
-      "matchPackagePatterns": [
-        "*"
+      "matchManagers": [
+        "npm"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ]
+    },
+    {
+      "groupName": "{{manager}} dependencies",
+      "matchManagers": [
+        "github-actions"
       ],
       "matchUpdateTypes": [
         "minor",
