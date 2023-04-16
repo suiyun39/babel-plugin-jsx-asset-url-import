@@ -8,6 +8,7 @@
     ":labels(dependencies)"
   ],
   "rebaseWhen": "never",
+  "rangeStrategy": "bump",
   "packageRules": [
     {
       "groupName": "{{manager}} dependencies",
