@@ -11,7 +11,7 @@
   "rangeStrategy": "bump",
   "packageRules": [
     {
-      "groupName": "{{manager}} dependencies",
+      "groupName": "npm dependencies",
       "matchManagers": [
         "npm"
       ],
@@ -21,7 +21,7 @@
       ]
     },
     {
-      "groupName": "{{manager}} dependencies",
+      "groupName": "github-actions dependencies",
       "matchManagers": [
         "github-actions"
       ],
