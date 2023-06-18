@@ -22,15 +22,15 @@
   "files": [
     "dist"
   ],
-  "author": "NoDocCat <nodoccat@outlook.com>",
+  "author": "suiyun39 <suiyun39@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/NoDocCat/babel-plugin-jsx-asset-url-import#readme",
+  "homepage": "https://github.com/suiyun39/babel-plugin-jsx-asset-url-import#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NoDocCat/babel-plugin-jsx-asset-url-import.git"
+    "url": "git+https://github.com/suiyun39/babel-plugin-jsx-asset-url-import.git"
   },
   "bugs": {
-    "url": "https://github.com/NoDocCat/babel-plugin-jsx-asset-url-import/issues"
+    "url": "https://github.com/suiyun39/babel-plugin-jsx-asset-url-import/issues"
   },
   "keywords": [
     "babel",
