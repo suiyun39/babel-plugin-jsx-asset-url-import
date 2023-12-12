@@ -1,16 +1,23 @@
 {
   "name": "babel-plugin-jsx-asset-url-import",
-  "type": "module",
   "version": "1.0.1",
   "description": "Extract and transform static url to import in JSX",
+  "repository": "github:suiyun39/babel-plugin-jsx-asset-url-import",
+  "license": "MIT",
+  "keywords": [
+    "babel",
+    "babel-plugin",
+    "jsx"
+  ],
+  "type": "module",
+  "packageManager": "pnpm@8.11.0",
   "scripts": {
     "build": "tsc && tsup",
     "lint": "eslint .",
     "test": "jest",
     "prepare": "husky install"
   },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
+  "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
@@ -22,22 +29,6 @@
   "files": [
     "dist"
   ],
-  "author": "suiyun39 <suiyun39@gmail.com>",
-  "license": "MIT",
-  "homepage": "https://github.com/suiyun39/babel-plugin-jsx-asset-url-import#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/suiyun39/babel-plugin-jsx-asset-url-import.git"
-  },
-  "bugs": {
-    "url": "https://github.com/suiyun39/babel-plugin-jsx-asset-url-import/issues"
-  },
-  "keywords": [
-    "babel",
-    "babel-plugin",
-    "jsx"
-  ],
-  "packageManager": "pnpm@8.11.0",
   "dependencies": {
     "srcset-parse": "^1.1.0"
   },
