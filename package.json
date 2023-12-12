@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-jsx-asset-url-import",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Extract and transform static url to import in JSX",
   "repository": "github:suiyun39/babel-plugin-jsx-asset-url-import",
   "license": "MIT",
