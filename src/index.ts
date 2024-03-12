@@ -69,7 +69,7 @@ export default function (): PluginObj<VisitorState> {
         const attrValue = node.value.value
 
         // 检查标签名称和属性名称
-        if (!tags[tagName] || !tags[tagName].includes(attrName)) {
+        if (!tags[tagName]?.includes(attrName)) {
           return
         }
 
@@ -105,8 +105,11 @@ export default function (): PluginObj<VisitorState> {
               expressions.push(identifier)
               quasis.push(t.templateElement({ raw: raw.join('') }))
             } else {
-              const prev = quasis[quasis.length - 1]
-              prev.value.raw += raw.join('')
+              const prev = quasis.at(-1)
+
+              if (prev) {
+                prev.value.raw += raw.join('')
+              }
             }
           }
 
