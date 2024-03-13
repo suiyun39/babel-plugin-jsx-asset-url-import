@@ -38,8 +38,8 @@ devDependencies:
     specifier: ^8.57.0
     version: 8.57.0
   eslint-config-rakko:
-    specifier: ^1.1.1
-    version: 1.1.1(@typescript-eslint/parser@6.21.0)(eslint@8.57.0)(typescript@5.3.3)
+    specifier: ^1.1.2
+    version: 1.1.2(@typescript-eslint/parser@6.21.0)(eslint@8.57.0)(typescript@5.3.3)
   husky:
     specifier: ^8.0.3
     version: 8.0.3
@@ -2031,7 +2031,7 @@ packages:
       normalize-path: 3.0.0
       readdirp: 3.6.0
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: 2.3.3
     dev: true
 
   /ci-info@3.7.1:
@@ -2436,10 +2436,10 @@ packages:
       eslint: 8.57.0
     dev: true
 
-  /eslint-config-rakko@1.1.1(@typescript-eslint/parser@6.21.0)(eslint@8.57.0)(typescript@5.3.3):
-    resolution: {integrity: sha512-9VTWsi7euuOoXBjdM8YIR9iQ3TXR8F797HDAETbo8EeB2tUZKo19hUg4YGMXit+zFnXoE8U+LyHubE5vP63vVg==}
+  /eslint-config-rakko@1.1.2(@typescript-eslint/parser@6.21.0)(eslint@8.57.0)(typescript@5.3.3):
+    resolution: {integrity: sha512-a8eVVXcjoi12ddn94ay5tBnwPwmgbfvcvQfkBDH8SOfZlpD9GlFAjt3KnT6TJ+kZiPbluDGv95omKqNEe0PGyw==}
     peerDependencies:
-      eslint: ^8.56.0
+      eslint: ^8.57.0
     dependencies:
       '@stylistic/eslint-plugin': 1.6.3(eslint@8.57.0)(typescript@5.3.3)
       eslint: 8.57.0
@@ -2871,8 +2871,8 @@ packages:
     resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}
     dev: true
 
-  /fsevents@2.3.2:
-    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
+  /fsevents@2.3.3:
+    resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
     requiresBuild: true
@@ -3636,7 +3636,7 @@ packages:
       micromatch: 4.0.5
       walker: 1.0.8
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: 2.3.3
     dev: true
 
   /jest-leak-detector@29.7.0:
@@ -4597,7 +4597,7 @@ packages:
       '@rollup/rollup-win32-arm64-msvc': 4.6.1
       '@rollup/rollup-win32-ia32-msvc': 4.6.1
       '@rollup/rollup-win32-x64-msvc': 4.6.1
-      fsevents: 2.3.2
+      fsevents: 2.3.3
     dev: true
 
   /run-parallel@1.2.0:
