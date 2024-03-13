@@ -1,10 +1,10 @@
-import { NodePath, Node, types as t } from '@babel/core'
+import { type NodePath, type Node, types as t } from '@babel/core'
 
 /**
  * 解析 JSX 标签名, 返回标签名的字符串表示
  * @param node 名称节点
  */
-export function resolveJSXTagName (node: t.JSXIdentifier | t.JSXMemberExpression): string {
+export function resolveJSXTagName(node: t.JSXIdentifier | t.JSXMemberExpression): string {
   if (t.isJSXIdentifier(node)) {
     return node.name
   }
@@ -31,7 +31,7 @@ export function resolveJSXTagName (node: t.JSXIdentifier | t.JSXMemberExpression
  * @param url 需要检查的 URL
  * @param includeAbsolute 是否包含绝对路径
  */
-export function shouldExtract (url: string, includeAbsolute: boolean): boolean {
+export function shouldExtract(url: string, includeAbsolute: boolean): boolean {
   // 空路径, 外部路径和 Data URL
   if (!url || url.startsWith('http') || url.startsWith('//') || url.startsWith('data:')) {
     return false
@@ -45,6 +45,6 @@ export function shouldExtract (url: string, includeAbsolute: boolean): boolean {
  * 获取唯一标识符
  * @param path 节点路径
  */
-export function getUidIdentifier (path: NodePath<Node>): t.Identifier {
+export function getUidIdentifier(path: NodePath<Node>): t.Identifier {
   return path.scope.generateUidIdentifier('import_assets')
 }

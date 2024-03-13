@@ -1,4 +1,4 @@
-import { PluginObj, PluginPass, types as t } from '@babel/core'
+import { type PluginObj, type PluginPass, types as t } from '@babel/core'
 import { name } from '../package.json'
 import { resolveJSXTagName, shouldExtract, getUidIdentifier } from './utils'
 import parseSrcSet from 'srcset-parse'
@@ -37,13 +37,13 @@ export default function (): PluginObj<VisitorState> {
     name: name,
     visitor: {
       Program: {
-        enter (path, state) {
+        enter(path, state) {
           includeAbsolute = !!state.opts.includeAbsolute
           tags = { ...tags, ...state.opts.tags }
 
           importsMap.clear()
         },
-        exit (path) {
+        exit(path) {
           importsMap.forEach((identifier, source) => {
             const specifier = t.importDefaultSpecifier(identifier)
             const importDeclaration = t.importDeclaration([specifier], t.stringLiteral(source))
@@ -51,7 +51,7 @@ export default function (): PluginObj<VisitorState> {
           })
         },
       },
-      JSXAttribute (path) {
+      JSXAttribute(path) {
         const { node, parent } = path
 
         // 属性值必须是静态字符串且在 JSX 开始标签上
@@ -81,7 +81,7 @@ export default function (): PluginObj<VisitorState> {
 
           for (const item of result) {
             const raw: string[] = []
-            let identifier: t.Identifier | undefined
+            let identifier: t.Identifier | undefined = undefined
 
             // 每个 URL 都需要单独检查, 不需要提取的应保持原样
             if (shouldExtract(item.url, includeAbsolute)) {
@@ -96,9 +96,15 @@ export default function (): PluginObj<VisitorState> {
             }
 
             // 处理固有宽度标识与分隔符
-            item.width && raw.push(` ${item.width}w`)
-            item.density && raw.push(` ${item.density}x`)
-            item !== result.at(-1) && raw.push(', ')
+            if (typeof item.width === 'number') {
+              raw.push(` ${item.width}w`)
+            }
+            if (typeof item.density === 'number') {
+              raw.push(` ${item.density}x`)
+            }
+            if (item !== result.at(-1)) {
+              raw.push(', ')
+            }
 
             // 如果进行了提取, 则应产生新的模板片段. 否则应将其追加到上一个模板片段上
             if (identifier) {

@@ -1,5 +1,3 @@
-/* eslint-disable quote-props */
-
 module.exports = {
   pluginOptions: {
     tags: {
