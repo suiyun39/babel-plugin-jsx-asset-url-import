@@ -1,6 +1,6 @@
 /* eslint-disable @stylistic/jsx-curly-brace-presence */
-import React from "react";
-export const App = () => {
+
+export function App() {
   const src = "./logo.png";
   return (
     <article>
@@ -8,4 +8,4 @@ export const App = () => {
       <img src={"./logo.png"} alt="" />
     </article>
   );
-};
+}

@@ -1,6 +1,4 @@
-import React from 'react'
-
-export const App: React.FC = () => {
+export function App() {
   return (
     <article>
       <img src="" alt="" />

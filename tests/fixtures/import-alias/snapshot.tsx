@@ -2,8 +2,7 @@ import _import_assets4 from "@/fixtures/logo.png";
 import _import_assets3 from "@fixtures/logo.png";
 import _import_assets2 from "~/fixtures/logo.png";
 import _import_assets from "~fixtures/logo.png";
-import React from "react";
-export const App = () => {
+export function App() {
   return (
     <article>
       <img src={_import_assets} alt="" />
@@ -12,4 +11,4 @@ export const App = () => {
       <img src={_import_assets4} alt="" />
     </article>
   );
-};
+}

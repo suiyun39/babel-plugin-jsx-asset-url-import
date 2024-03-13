@@ -1,13 +1,14 @@
 import _import_assets from "./logo.png";
-import React from "react";
-const Image = () => null;
+function Image(props) {
+  return <img src={props.src} alt="" />;
+}
 const Bar = {
   Image,
 };
 const Foo = {
   Bar,
 };
-export const App = () => {
+export function App() {
   return (
     <article>
       <img src="./logo.png" alt="" />
@@ -16,4 +17,4 @@ export const App = () => {
       <Foo.Bar.Image src={_import_assets} />
     </article>
   );
-};
+}

@@ -1,7 +1,6 @@
 import _import_assets2 from "./logo-2x.png";
 import _import_assets from "./logo.png";
-import React from "react";
-export const App = () => {
+export function App() {
   return (
     <article>
       <img
@@ -16,4 +15,4 @@ export const App = () => {
       </picture>
     </article>
   );
-};
+}

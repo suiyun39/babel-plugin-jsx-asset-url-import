@@ -5,8 +5,7 @@ import _import_assets4 from "./video.mp4";
 import _import_assets3 from "./help.pdf";
 import _import_assets2 from "./logo.png";
 import _import_assets from "./audio.mp3";
-import React from "react";
-export const App = () => {
+export function App() {
   return (
     <article>
       <audio src={_import_assets} />
@@ -22,4 +21,4 @@ export const App = () => {
       <use href={_import_assets2} xlinkHref={_import_assets2} />
     </article>
   );
-};
+}

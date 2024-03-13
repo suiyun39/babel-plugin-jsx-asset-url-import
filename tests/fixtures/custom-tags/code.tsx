@@ -1,10 +1,15 @@
-import React from 'react'
+interface ImageProps {
+  src: string
+}
 
-const Image: React.FC<{ src: string }> = () => null
+function Image(props: ImageProps) {
+  return <img src={props.src} alt="" />
+}
+
 const Bar = { Image }
 const Foo = { Bar }
 
-export const App: React.FC = () => {
+export function App() {
   return (
     <article>
       <img src="./logo.png" alt="" />

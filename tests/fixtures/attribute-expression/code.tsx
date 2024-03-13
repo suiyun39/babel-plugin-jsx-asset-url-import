@@ -1,7 +1,6 @@
 /* eslint-disable @stylistic/jsx-curly-brace-presence */
-import React from 'react'
 
-export const App: React.FC = () => {
+export function App() {
   const src = './logo.png'
 
   return (
